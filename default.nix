@@ -21,10 +21,20 @@ in
 
     config = mkIf cfg.enable {
       environment = {
+        # write sway config file to manage the gnome session
         etc = {
           "sway/config.d/sway-gnome.conf".source = pkgs.writeText "sway-gnome.conf" ''
             exec ${start-gnome-session}
           '';
+        };
+
+        # write sway config file to start and manage waybar
+        etc = {
+          "sway/config.d/sway-gnome-waybar.conf".source = pkgs.writeText "sway-gnome-waybar.conf" ''
+           bar {
+            swaybar_command waybar
+           }
+           '';
         };
 
         pathsToLink = [
