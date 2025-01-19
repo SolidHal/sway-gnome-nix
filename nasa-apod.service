@@ -1,5 +1,0 @@
-[Unit]
-Description=NASA APOD Downloader
-
-[Service]
-ExecStart=/home/coconnor/bin/nasa-apod.sh
