@@ -93,6 +93,7 @@ in
           enable = true;
           package = null;
         };
+        waybar.enable = true;
         zsh.vteIntegration = true;
       };
 
