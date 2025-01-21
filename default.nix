@@ -19,9 +19,16 @@ in
       };
     };
 
+    # start regolith components
+    imports = [ ./displayd.nix ];
 
     config = mkIf cfg.enable {
+      # enable regolith components
+      sway-gnome.displayd.enable = true;
+
       environment = {
+
+
         # write sway config file to manage the gnome session
         etc = {
           "sway/config.d/sway-gnome.conf".source = pkgs.writeText "sway-gnome.conf" ''
