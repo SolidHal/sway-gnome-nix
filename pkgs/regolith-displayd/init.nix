@@ -10,13 +10,13 @@
 
 pkgs.stdenv.mkDerivation {
   pname = "regolith-displayd";
-version = "3.0";
+version = "3.2";
 
 src = pkgs.fetchFromGitHub {
 owner = "regolith-linux";
 repo = "regolith-displayd";
-rev = "r3_0";
-hash = "sha256-6E3oLlRNuEYrhkT0ENvyYzVvebK8JcSR1ubsEI34X0g=";
+rev = "r3_2";
+hash = "sha256-tjFbTrdRlpLuxlUIo6qOFGoPeMEXLStxOpYcFsmLn2I=";
 };
 
   nativeBuildInputs = [];

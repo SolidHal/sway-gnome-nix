@@ -7,16 +7,16 @@
 # in
 pkgs.rustPlatform.buildRustPackage rec {
 pname = "regolith-displayd";
-version = "3.0";
+version = "3.2";
 
 src = pkgs.fetchFromGitHub {
 owner = "regolith-linux";
 repo = "regolith-displayd";
-rev = "r3_0";
-hash = "sha256-6E3oLlRNuEYrhkT0ENvyYzVvebK8JcSR1ubsEI34X0g=";
+rev = "r3_2";
+hash = "sha256-tjFbTrdRlpLuxlUIo6qOFGoPeMEXLStxOpYcFsmLn2I=";
 };
 
-cargoHash = "sha256-vodqVq58P5Mt1WG1lg+NR4DDmfiDq+H9kZyuA6Em1k4=";
+cargoHash = "sha256-9yBKR5Evh42WybIjZ6v4ZVzZL4memgfLARNkqUO/0SY=";
 
 nativeBuildInputs = with pkgs;[pkg-config rustc];
 buildInputs = with pkgs;[glib];
@@ -26,7 +26,7 @@ buildInputs = with pkgs;[glib];
 #     mkdir -p $out/bin
 #     # cp $src/regolith-displayd-init $out/bin/
 #     touch $out/bin/session.txt
-    
+
 #   '';
 
   meta = {
