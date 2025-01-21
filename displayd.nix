@@ -1,4 +1,4 @@
-{ system, inputs, config, lib, pkgs, ... }:
+{ system, inputs, config, lib, pkgs, sway-gnome, ... }:
 
 with lib;
 
@@ -29,7 +29,8 @@ in {
 
     serviceConfig = {
       Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/kanshi -c %h/.config/regolith3/kanshi/config";
+      Environment = "PATH=$PATH:${lib.makeBinPath [ pkgs.kanshi ]}" ;
+      ExecStart = "kanshi -c %h/.config/regolith3/kanshi/config";
       Restart = "on-failure";
       StartLimitIntervalSec = 10;
       StartLimitBurst = 5;
@@ -52,6 +53,8 @@ in {
     serviceConfig = {
       Type = "dbus";
       BusName = "org.gnome.Mutter.DisplayConfig";
+      # TODO hardcoding the run path here is gross, figure out how to get regolith-displayd and regolith-displayd-init in the path like normal packages
+      Environment = "PATH=$PATH:${lib.makeBinPath [ pkgs.killall ]}:/run/current-system/sw/bin/";
       ExecStartPre = "/run/current-system/sw/bin/regolith-displayd-init";
       ExecStart = "/run/current-system/sw/bin/regolith-displayd";
       Restart = "on-failure";
