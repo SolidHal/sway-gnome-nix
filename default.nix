@@ -19,7 +19,6 @@ in
       };
     };
 
-    packages."x86_64-linux".regolith-displayd = pkgs.callPackage ./pkgs/regolith-displayd/default.nix{};
 
     config = mkIf cfg.enable {
       environment = {
